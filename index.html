@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mighty Amp Custom IR patcher</title>
+	<style>
+		body {
+			text-align:center;
+		}
+		.loaded {color: white; background-color: green; font-weight:bold;}
+		.center {
+			margin-left: auto;
+			margin-right: auto;
+		}
+		table td:first-child {
+			padding-left:10px;
+			padding-right:10px;
+		}
+		.toppadding {
+			padding-top:20px;
+		}
+		p {
+			margin-left:15vh;
+			margin-right:15vh;
+		}
+		.warning {
+			color:red;
+		}
+</style>
+  </head>
+  <body>
+	<h2>Mighty Amp Custom IR patcher</h2>
+	<p>This tool allows you to replace any of the 19 NUX IRs inside the firmware with custom ones.</p>
+	<p>Upload your Mighty Plug/Air firmware and any IR wave files you want to use. The IRs must be in 32bit floating point format
+	(note that this is different from 32 bit PCM). NUX uses IRs with 2048 samples. If your files are longer or shorter they will be appended with silence/truncated. Note that I still haven't figured out whether the IRs are 1 channel 2048 samples or 2 channels 1024 samples each but the tool doesn't care and accepts both.
+	<p class="warning">Warning! Use at your own risk. Although I've thoroughly tested this tool I can't guarantee it won't produce broken firmware.
+	Firmware update is risky procedure, also using a modified firmware usually voids the warranty of the product!</p>
+	<table class="center">
+		<tbody>
+		<tr>
+		<td>Firmware:</td>
+		<td><input type="file" id="firmware" name="firmware" /></td>
+		<td><span id="fwinfo"></span></td>
+		</tr>
+		<tr>
+			<td class="toppadding">IR files:</td>
+		</tr>
+		<tr>
+			<td class="label">1960A</span></td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear0" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">A212</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear1" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">BS410</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear2" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">DR112</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear3" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">GB412</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear4" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">JZ120</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear5" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">TR212</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear6" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">V412</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear7" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">AGL DB810</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear8" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">AMP SV810</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear9" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">MKB 410</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear10" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">TRC 410</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear11" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">G HBird</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear12" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">G J15</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear13" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">M D45</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear14" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">G J200</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear15" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">G J45</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear16" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">T 314</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear17" value="Clear"/></td>
+		</tr>
+		<tr>
+			<td class="label">M HD28</td>
+			<td><input type="file" class="wave" name="wave" /></td>
+			<td><input type="button" id="clear18" value="Clear"/></td>
+		</tr>
+		</tbody>
+	</table>
+	
+	<p><input type="button" id="process" value="Process and download" /></p>
+	
+	<a href="https://github.com/tuntorius/mightier_amp#mightier-amp" target="_blank">Check out Mightier Amp at Github</a>
+	<script src="fileSaver.min.js"></script>
+	<script src="main.js"></script>
+  </body>
+</html>
