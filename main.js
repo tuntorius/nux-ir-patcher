@@ -134,7 +134,7 @@ function onWaveLoaded(dataArrayBuffer, index)
 			console.log("Bits per sample: " + bitsPerSample);
 			if (format!=3 || bitsPerSample!=32)
 			{
-				fileFields[index].value = '';
+				clearSlot(index);
 				alert("You must use 32-bit floating point wave files!");
 				return;
 			}
@@ -151,13 +151,14 @@ function onWaveLoaded(dataArrayBuffer, index)
 			var view = new Uint8Array(sampleBuffers[index]);
 			view.set(data.subarray(pos+8,pos+8+copyLength));
 			
+			/*
 			if (chunkSize<sampleLength)
 			{
-				alert(`The file is shorter than ${sampleLength} samples. Will be appended with silence.`);
+				alert("The file is shorter than " + sampleLength + " samples. Will be appended with silence.");
 			}
 			else if (chunkSize>sampleLength)
-				alert(`The file is longer that ${sampleLength} samples. The excess will be trimmed.`);
-				
+				alert("The file is longer that" + sampleLength + " samples. The excess will be trimmed.");
+			*/
 			//reverse it because that's what mighty amp expects
 			//the data is float but it
 			var floatView = new Float32Array(sampleBuffers[index]);
