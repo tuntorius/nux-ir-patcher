@@ -35,6 +35,7 @@
 	<p>This tool allows you to replace any of the 19 NUX IRs inside the firmware with custom ones.</p>
 	<p>Upload your Mighty Plug/Air firmware and any IR wave files you want to use. The IRs must be in mono 32bit floating point format
 	(note that this is different from 32 bit PCM). NUX uses IRs with 2048 samples. If your files are longer or shorter they will be appended with silence/truncated.
+	<p>The tool produces new firmware file. Use it to update your device using the official firmware update tool.</p>
 	<p class="warning">Warning! Use at your own risk. Although I've thoroughly tested this tool I can't guarantee it won't produce broken firmware.
 	Firmware update is risky procedure, also using a modified firmware usually voids the warranty of the product!</p>
 	<table class="center">
@@ -145,9 +146,15 @@
 		</tbody>
 	</table>
 	
-	<p><input type="button" id="process" value="Process and download" /></p>
+	<p><b><input type="button" id="process" value="Process and download" /></b></p>
 	
-	<a href="https://github.com/tuntorius/nux-ir-patcher#nux-ir-patcher" target="_blank">Project Github Repository</a>
+		<br/>
+		<p dir="auto">
+		<p>This tool is free to use, but if you find it useful, you can support me at this link:</p>
+		<a href="https://www.paypal.com/donate?hosted_button_id=FZWWAM4NUFRPC" rel="nofollow"><img src="https://camo.githubusercontent.com/361950b331ef676b7eec436a4dbe5a7ce47211a6623dcc889b1f5b7b611b27df/68747470733a2f2f7777772e70617970616c6f626a656374732e636f6d2f656e5f55532f692f62746e2f62746e5f646f6e61746543435f4c472e676966"
+		alt="paypal" data-canonical-src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" style="max-width: 100%;">
+		</a>
+		</p>
 	<script src="fileSaver.min.js"></script>
 	<script src="main.js"></script>
   </body>
