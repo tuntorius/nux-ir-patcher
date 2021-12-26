@@ -24,6 +24,13 @@ var firmwares = [
 		irOffset: 0xab398
 	},
 	{
+		name:"Mighty Plug v2.3",
+		type:"NUX MIGHTY PLUG",
+		date:"20211129",
+		filename:"MightyPlug_v2_3_irmod.bin",
+		irOffset: 0xab398
+	},
+	{
 		name:"Mighty Air v1.4.1",
 		type:"NUX MIGHTY AIR",
 		date:"20200708",
@@ -95,6 +102,8 @@ function onFirmwareLoaded(dataArrayBuffer)
 	var type = enc.decode(data.subarray(20, 35));
 	var date = enc.decode(data.subarray(532, 540));
 	var fwinfo = document.getElementById("fwinfo");
+	
+	selectedFW = null;
 	
 	if (header != "NUX DFU") {
 		fwinfo.innerHTML = "Error: Invalid Firmware File";
