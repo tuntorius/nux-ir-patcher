@@ -7,7 +7,7 @@ Mighty Air v2.2, v2.1 & v1.4.1
 
 ## How to use
 The tool is hosted at this link : 
-[https://nux-ir-loader.000webhostapp.com/ ](https://tuntorius.github.io/nux-ir-patcher/) 
+[https://tuntorius.github.io/nux-ir-patcher/](https://tuntorius.github.io/nux-ir-patcher/) 
 Use the firmware *.bin file from the archive of the firmware updater from NUX website. Upload it together with any IR wave files you want to use. The IRs must be in 32bit floating point format (note that this is different from 32 bit PCM). NUX uses IRs with 2048 samples. If your files are longer or shorter they will be appended with silence/truncated.
 When ready, click "Process and download". The tool will generate patched firmware. Use it to update your device with the regular firmware updater.
 
