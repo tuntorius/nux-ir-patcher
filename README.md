@@ -2,7 +2,7 @@
 This tool allows you to replace any of the 19 NUX IRs inside the firmware with custom ones.
 
 ## Supported Firmware Versions
-Mighty Plug v2.3, v2.2, v2.1 & v1.5.2
+Mighty Plug v2.3, v2.2, v2.1 & v1.5.2  
 Mighty Air v2.3.1, v2.3, v2.2, v2.1 & v1.4.1
 
 ## How to use
