@@ -57,6 +57,13 @@ var firmwares = [
 		date:"20220428",
 		filename:"MightyAir_v2_3_irmod.bin",
 		irOffset: 0xab398
+	},
+	{
+		name:"Mighty Air v2.3.1",
+		type:"NUX MIGHTY AIR",
+		date:"20221201",
+		filename:"MightyAir_v2.3.1_irmod.bin",
+		irOffset: 0xab398
 	}
 ];
 
